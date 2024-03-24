@@ -1,4 +1,4 @@
-name: CI-ubuntu
+name: CI-ubuntu-test2
 on:
   schedule:
     - cron: "0 0,6,12,18 * * *"  # every day at JPT 9:05 13:05 17:05 21:05=UTC 0:05,...  ## GHC using UTC timezone
@@ -8,7 +8,7 @@ on:
     branches:
       - main
     paths:
-      - '.github/workflows/ubuntu-test.yml'
+      - '.github/workflows/ubuntu-test2.yml'
       - 'config/ubuntu-release.flag'
   pull_request:
   workflow_dispatch:  
