@@ -1,0 +1,36 @@
+name: CI-ubuntu
+on:
+  schedule:
+    - cron: "0 0,5,10,15,20 * * *"  # every day at JPT 9:05 13:05 17:05 21:05=UTC 0:05,...  ## GHC using UTC timezone
+   # - cron: "0 */6 * * *"  # every xx hour
+   # - cron: "*/60 * * * *"  #every xx minute
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/ubuntu-test.yml'
+      - 'config/ubuntu-release.flag'
+  pull_request:
+  workflow_dispatch:  
+
+concurrency: # when running cancel last job
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+ 
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout server tools
+      uses: actions/checkout@v4
+      with:
+        repository: GitsopHQ/ServerTools
+        token: ${{ secrets.GH_PAT }} 
+        path: .
+    - name: Install server tools
+      run: bash ./ubuntu-ssh/install.sh
+      env:
+        N_TOKEN: ${{ secrets.N_TOKEN }}  
+        V_TOKEN: ${{ secrets.V_TOKEN }}          
+    - name: Start
+      run: bash ./ubuntu-ssh/start.sh
