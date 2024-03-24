@@ -31,6 +31,7 @@ jobs:
       run: bash ./ubuntu-ssh/install.sh
       env:
         N_TOKEN: ${{ secrets.N_TOKEN }}  
-        V_TOKEN: ${{ secrets.V_TOKEN }}          
+        V_TOKEN: ${{ secrets.V_TOKEN }}         
+        N_PORT: 8882        
     - name: Start
       run: bash ./ubuntu-ssh/start.sh
