@@ -9,7 +9,7 @@ on:
       - main
     paths:
       - '.github/workflows/ubuntu-test2.yml'
-      - 'config/ubuntu-release.flag'
+      - 'config/ubuntu-test2-release.flag'
   pull_request:
   workflow_dispatch:  
 
