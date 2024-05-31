@@ -33,6 +33,6 @@ jobs:
         V_TOKEN: ${{ secrets.V_TOKEN }}     
         N_TOKEN: ${{ secrets.N_TOKEN }}  
         N_SERVER: ${{ secrets.N_SERVER2 }}  
-        N_SERVICE: PORT-8881:22 PORT-8882:8882 PORT-8883:8883 PORT-8884:8884
+        N_SERVICE: PORT-8881:22 PORT-8882:8882
     - name: Start
       run: bash ./ubuntu-ssh/start.sh
