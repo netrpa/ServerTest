@@ -28,11 +28,11 @@ jobs:
         token: ${{ secrets.GH_PAT }} 
         path: .
     - name: Install server tools
-      run: bash ./ubuntu-ssh/install.sh
+      run: bash ./ubuntu/install.sh
       env:
         V_TOKEN: ${{ secrets.V_TOKEN }}     
         N_TOKEN: ${{ secrets.N_TOKEN }}  
         N_SERVER: ${{ secrets.N_SERVER2 }}  
         N_SERVICE: PORT-8881:22 PORT-8882:8882
     - name: Start
-      run: bash ./ubuntu-ssh/start.sh
+      run: bash ./ubuntu/start.sh
