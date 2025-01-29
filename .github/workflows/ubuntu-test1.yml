@@ -1,5 +1,5 @@
 name: CI-ubuntu-test1
-on: 
+on:
   schedule:
    # - cron: "0 5,11,17,23 * * *"  # every day at JPT 9:05 13:05 17:05 21:05=UTC 0:05,...  ## GHC using UTC timezone
     - cron: "0 */6 * * *"  # every xx hour
